@@ -1,0 +1,26 @@
+import json
+
+# Load JSON data from file
+with open("sample-data.json") as file:
+    data = json.load(file)
+
+# Extract the interface list
+interfaces = data["imdata"]
+
+# Print Header
+print("Interface Status")
+print("=" * 80)
+print(f"{'DN':<50} {'Description':<20} {'Speed':<7} {'MTU':<6}")
+print("-" * 80)
+
+# Print interface details
+for item in interfaces:
+    attributes = item["l1PhysIf"]["attributes"]
+    dn = attributes["dn"]
+    descr = attributes.get("descr", "")  # Default to empty string if missing
+    speed = attributes.get("speed", "inherit")  # Default value if missing
+    mtu = attributes.get("mtu", "9150")  # Default value if missing
+    
+    print(f"{dn:<50} {descr:<20} {speed:<7} {mtu:<6}")
+
+
