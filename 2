@@ -1,0 +1,50 @@
+from datetime import datetime, timedelta
+
+# Get current date
+current_date = datetime.today()
+
+# Subtract 5 days
+new_date = current_date - timedelta(days=5)
+
+print("Current Date:", current_date.strftime("%Y-%m-%d"))
+print("Date 5 Days Ago:", new_date.strftime("%Y-%m-%d"))
+
+
+
+from datetime import datetime, timedelta
+
+# Get today’s date
+today = datetime.today()
+yesterday = today - timedelta(days=1)
+tomorrow = today + timedelta(days=1)
+
+print("Yesterday:", yesterday.strftime("%Y-%m-%d"))
+print("Today:", today.strftime("%Y-%m-%d"))
+print("Tomorrow:", tomorrow.strftime("%Y-%m-%d"))
+
+
+
+from datetime import datetime
+
+# Get current datetime
+current_datetime = datetime.now()
+
+# Remove microseconds
+dt_without_microseconds = current_datetime.replace(microsecond=0)
+
+print("Original Datetime:", current_datetime)
+print("Datetime without Microseconds:", dt_without_microseconds)
+
+
+
+
+from datetime import datetime
+
+# Define two datetime objects
+date1 = datetime(2024, 2, 10, 12, 0, 0)
+date2 = datetime(2024, 2, 15, 14, 30, 0)
+
+# Compute difference in seconds
+difference_in_seconds = abs((date2 - date1).total_seconds())
+
+print(f"Difference between {date1} and {date2} is {difference_in_seconds} seconds.")
